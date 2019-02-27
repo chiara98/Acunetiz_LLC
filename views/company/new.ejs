@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <title></title>
+      <style>
+        body {
+          font-family: arial;
+          margin: 0;
+        }
+        nav {
+          background: #ff5353;
+          padding: 20px 10px;
+        }
+        nav ul {
+          max-width: 960px;
+          margin: 0 auto;
+          padding: 0;
+        }
+        nav li {
+          list-style-type: none;
+          display: inline-block;
+          margin: 0 10px 0 0;
+
+        }
+        nav a{
+          color: #fff;
+          font-size: 18px;
+          background: rgba(255,255,255,0.2);
+          text-decoration: none;
+          padding: 10px;
+          display: block;
+        }
+        main,header {
+          max-width: 960px;
+          margin: 30px auto;
+          padding: 0 10px;
+          color: #333;
+        }
+        .google-btn {
+          color: #fff;
+          text-decoration: none;
+          font-size: 18px;
+          padding: 10px;
+          background: #ff5353;
+        }
+        .container {
+  padding: 16px;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: #ff5353;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+      </style>
+
+  </head>
+
+  <body>
+
+    <nav>
+      <ul>
+        <% if(user){%>
+        <li><a href="/auth/logout"> Logout</a></li>
+        <li><a href="/"> Products </a></li>
+        <li><a href="/orders"> Orders </a></li>
+        <%} else {%>
+          <li><a href="/auth/login"> Login</a></li>
+          <%} %>
+        <li><a href="/"> Homepage</a></li>
+        <li><a href="/profile">Profile</a></li>
+      </ul>
+    </nav>
+
+    <main>
+  <form method="post" action="/company">
+  <div class="container">
+    <h1>Register your Company</h1>
+
+
+    <label for="comapny"><b>Company</b></label>
+    <input type="text" placeholder="Name" name="name" required>
+    <input type="text" placeholder="Description" name="description" required>
+
+    <button type="submit" class="registerbtn">Submit</button>
+  </div>
+</form>
+
+</main>
+
+  </body>
+</html>
